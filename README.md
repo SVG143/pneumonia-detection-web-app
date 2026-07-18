@@ -57,7 +57,7 @@ The Docker frontend is available at `http://localhost:5174` and the API at `http
 
 ## Train the model
 
-Place licensed, de-identified data in `data/train`, `data/val`, and `data/test`, each containing `NORMAL` and `PNEUMONIA` folders. Then run:
+Download the CC BY 4.0 Mendeley dataset (DOI: `10.17632/rscbjbr9sj.2`) and place the chest X-ray folders in `data/train` and `data/test`, each containing `NORMAL` and `PNEUMONIA`. The script creates a seeded 80/20 validation split from training data and leaves the test set untouched. Then run:
 
 ```bash
 source .venv/bin/activate
@@ -65,4 +65,4 @@ cd backend
 python train.py
 ```
 
-The best checkpoint is written to `model_artifacts/pneumonia_cnn.keras`. Report performance only from the generated evaluation output, with dataset provenance and limitations.
+The best checkpoint is written to `model_artifacts/pneumonia_cnn.keras`; test metrics and confusion-matrix counts are written to `model_artifacts/evaluation.json`. Report performance only from this generated evaluation, with dataset provenance and limitations.
